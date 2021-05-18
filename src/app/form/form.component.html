@@ -1,0 +1,89 @@
+
+<div class="row">
+    <div class="col-md-6">
+       <div>
+           <form [formGroup] = "Register" >
+               <input type="hidden" class="form-control form-control-lg" placeholder="Full Name" formControlName="employeeID">
+
+               <div class="form-group">
+                   <label>Prize 1</label>
+                   <input class="form-control form-control-lg" placeholder="Prize value" formControlName="employeeName"
+                   >
+                   <!-- required [class.invalid]="Register.get('employeeName').invalid? && Register.get('employeeName').touched" -->
+               </div>
+               <div class="form-group">
+                   <label>Prize 2</label>
+                   <input class="form-control form-control-lg"  placeholder="Prize value" formControlName="employeeAge"  
+                   >
+                   <!-- required [class.invalid]="Register.get('employeeAge').invalid && Register.get('employeeAge').touched" -->
+               </div>
+               <div class="form-group">
+                   <label>Prize 3</label>
+                   <input class="form-control form-control-lg" placeholder="Prize value" formControlName="employeeDeparment"
+                   >
+                   <!-- required [class.invalid]="Register.get('employeeDeparment').invalid && Register.get('employeeDeparment').touched" -->
+               </div>
+               <div class="form-group">
+                   <label>Prize 4</label>
+                   <input class="form-control form-control-lg" placeholder="Department" formControlName="employeeRole"
+                   >
+                   <!-- required [class.invalid]="Register.get('employeeDeparment').invalid && Register.get('employeeDeparment').touched" -->
+               </div>
+               
+       <div class="row">
+           <div class="col-md-6">
+           <div class="form-group" >
+               <button class="btn btn-info btn-lg btn-block" type="button" (click)="onSUbmit()" [disabled]="Register.invalid">SUBMIT</button>
+               <!--  -->
+           </div>
+       </div>
+       <div class="col-md-6">
+
+           <div class="form-group" >
+               <button class="btn btn-info btn-lg btn-block" type="button" (click)="onReset()" >Reset</button>
+           </div>
+           </div>
+
+       </div>
+           </form>
+       </div>
+
+
+   
+   
+   </div>
+
+   <div class="col-md-6">
+       <table class="table">
+           <thead class="thead-light">
+               <tr>
+                   <th>Prize 1</th>
+                   <th>Prize 2</th>
+                   <th class="text-center">Prize 3</th>
+                   <th class="text-center">Prize 4</th>
+                   <th class="text-center">Edit</th>
+
+       
+               </tr>
+           </thead>
+           <tbody>
+               <tr *ngFor="let pd of list">
+                   <td >{{pd.employeeName}}</td>
+                   <td>{{pd.employeeAge}}</td>
+                   <td class="text-center">{{pd.employeeDeparment}}</td>
+                   <td class="text-center">{{pd.employeeRole}}</td>
+                   <!-- <td class="text-center">
+                       <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.employeeID)"></i>
+                   </td> -->
+                   <td class="text-center">
+                       <i class="fas fa-edit" (click)="populateForm(pd)"></i>
+                   </td>
+               </tr>
+           </tbody>
+       </table>
+
+   </div>
+ </div>
+
+
+
